@@ -7,7 +7,7 @@ function Game() {
   const nombreJugador = location.state?.playerName || 'Jugador';
   const [numeroAleatorio, setNumeroAleatorio] = useState(null);
   const [adivinanza, setAdivinanza] = useState('');
-  const [retroalimentacion, setRetroalimentacion] = useState('');
+  const [mensajeFeedback, setmensajeFeedback] = useState('');
   const [intentos, setIntentos] = useState(0);
   const [esCorrecto, setEsCorrecto] = useState(false);
 
@@ -18,17 +18,17 @@ function Game() {
   const manejarAdivinanza = () => {
     const numeroIngresado = parseInt(adivinanza, 10);
     if (isNaN(numeroIngresado)) {
-      setRetroalimentacion('Ingresa un número válido');
+      setmensajeFeedback('Ingresa un número válido');
       return;
     }
 
     setIntentos(intentos + 1);
     if (numeroIngresado < numeroAleatorio) {
-      setRetroalimentacion('Muy bajo prueba con otro numero');
+      setmensajeFeedback('Muy bajo prueba con otro numero');
     } else if (numeroIngresado > numeroAleatorio) {
-      setRetroalimentacion('Muy alto prueba con otro numero');
+      setmensajeFeedback('Muy alto prueba con otro numero');
     } else {
-      setRetroalimentacion('¡Correcto felicitaciones!');
+      setmensajeFeedback('¡Correcto felicitaciones!');
       setEsCorrecto(true);
     }
   };
@@ -46,7 +46,7 @@ function Game() {
         {esCorrecto ? numeroAleatorio : '?'}
       </div>
       <button onClick={manejarAdivinanza}>Adivinar</button>
-      <Feedback message={retroalimentacion} />
+      <Feedback message={mensajeFeedback} />
       <p>Intentos Fallidos: {intentos}</p>
     </div>
   );
