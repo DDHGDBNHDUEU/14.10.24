@@ -24,11 +24,11 @@ function Game() {
 
     setIntentos(intentos + 1);
     if (numeroIngresado < numeroAleatorio) {
-      setRetroalimentacion('Muy bajo');
+      setRetroalimentacion('Muy bajo prueba con otro numero');
     } else if (numeroIngresado > numeroAleatorio) {
-      setRetroalimentacion('Muy alto');
+      setRetroalimentacion('Muy alto prueba con otro numero');
     } else {
-      setRetroalimentacion('¡Correcto!');
+      setRetroalimentacion('¡Correcto felicitaciones!');
       setEsCorrecto(true);
     }
   };
